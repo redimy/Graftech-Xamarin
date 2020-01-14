@@ -192,7 +192,7 @@ namespace PegsiApp.ViewModels
 
                             if (DocVencidosList.Count == 0)
                             {
-                                if (Participante.Activo == true || Participante.Credencial == true)
+                                if (Participante.Credencial == true)
                                 {
                                     colorS = cGreen;
                                     ColorMensaje = mActivo;
@@ -228,6 +228,7 @@ namespace PegsiApp.ViewModels
                         }
                         else
                         {
+                            Info = "El usuario no existe";
                             colorS = cRed;
                             ColorMensaje = "ALTO";
                         }

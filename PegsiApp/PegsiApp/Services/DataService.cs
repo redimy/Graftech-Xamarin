@@ -26,12 +26,17 @@ namespace PegsiApp.Services
         public async Task<Participante> GetParticipanteAsync(int id)
         {
             var httpClient = new HttpClient();
+            try
+            {
+                var json = await httpClient.GetStringAsync(Url + id + "/documentos");
+                var participante = JsonConvert.DeserializeObject<Participante>(json);
+                return participante;
+            }
+            catch
+            {
+                return null;
+            }
 
-            var json = await httpClient.GetStringAsync(Url + id + "/documentos");
-
-            var participante = JsonConvert.DeserializeObject<Participante>(json);
-
-            return participante;
         }
 
 
