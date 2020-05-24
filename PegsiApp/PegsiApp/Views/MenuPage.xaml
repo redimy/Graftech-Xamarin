@@ -5,9 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="PegsiApp.Views.MenuPage"
-             Title="Menu">
+             Title="Menu"
+             Padding="0,0,0,0"  BackgroundColor="#00427D"
+             >
              
     <StackLayout VerticalOptions="FillAndExpand">
+        <Image Source="Assets/GFTLogo.png" HeightRequest="140" WidthRequest="140" FlexLayout.AlignSelf="Center" BackgroundColor="Transparent" />
+
         <ListView x:Name="ListViewMenu"
                     HasUnevenRows="True">
             <d:ListView.ItemsSource>
@@ -19,9 +23,10 @@
             </d:ListView.ItemsSource>
             <ListView.ItemTemplate>
                 <DataTemplate>
+
                     <ViewCell>
                         <Grid Padding="10">
-                            <Label Text="{Binding Title}" d:Text="{Binding .}" FontSize="20"/>
+                            <Label Text="{Binding Title}" d:Text="{Binding .}" FontSize="20" TextColor="White"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

@@ -8,7 +8,8 @@ namespace PegsiApp.Models
     {
         Participante,
         Browse,
-        About
+        About,
+        Salir
     }
     public class HomeMenuItem
     {

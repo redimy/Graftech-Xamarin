@@ -3,16 +3,11 @@ using PegsiApp.Models;
 using PegsiApp.Services;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.UWP;
 using ZXing;
 using ZXing.Mobile;
 using ZXing.Net.Mobile.Forms;
@@ -28,10 +23,23 @@ namespace PegsiApp.ViewModels
         public Color cYellow = Color.FromHex("#fff200");
         public Color cRed = Color.Red;
         public string mActivo = "SIGA";
-
+        public bool isvisible = false; 
         private DataService _dataService = new DataService();
         public Participante _participante;
         private List<String> _docVencidosList;
+
+
+        public Participante _modelParticipante;
+        public Participante modelParticipante
+        {
+            get { return _modelParticipante; }
+            set
+            {
+                _modelParticipante = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public Participante Participante
         {
@@ -179,7 +187,15 @@ namespace PegsiApp.ViewModels
                     {
                       
                         Participante = await _dataService.GetParticipanteAsync(iClave);
-                        if (Participante != null)
+                        if(Participante != null && Participante.Empresa.empresaMasterId == 805)
+                        {
+                            modelParticipante = Participante;
+                        }
+                        else
+                        {
+                            modelParticipante = null;
+                        }
+                        if (Participante != null && (Participante.Empresa.empresaMasterId == 805))
                         {
                             DocVencidosList = Participante.documentosVencidos;
                             var sImagenLocation = urlImagenWeb(clave, Participante.Foto);
@@ -192,16 +208,16 @@ namespace PegsiApp.ViewModels
 
                             if (DocVencidosList.Count == 0)
                             {
-                                if (Participante.Credencial == true)
-                                {
-                                    colorS = cGreen;
-                                    ColorMensaje = mActivo;
-                                }
-                                else
-                                {
-                                    colorS = cRed;
-                                    ColorMensaje = "Inactivo";
-                                }
+                                //if (Participante.Credencial == true)
+                                //{
+                                //    colorS = cGreen;
+                                //    ColorMensaje = mActivo;
+                                //}
+                                //else
+                                //{
+                                //    colorS = cRed;
+                                //    ColorMensaje = "Inactivo";
+                                //}
                                 switch (Participante.Estatus)
                                 {
                                     case "Activo":
@@ -216,6 +232,12 @@ namespace PegsiApp.ViewModels
                                         colorS = cRed;
                                         ColorMensaje = "Vetado";
                                         break;
+                                    case null:
+                                        colorS = cGreen;
+                                        ColorMensaje = mActivo;
+                                        break;
+                        
+
                                 }
                             }
                             else
@@ -231,6 +253,8 @@ namespace PegsiApp.ViewModels
                             Info = "El usuario no existe";
                             colorS = cRed;
                             ColorMensaje = "ALTO";
+          
+
                         }
 
                     }

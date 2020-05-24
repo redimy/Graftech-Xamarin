@@ -65,8 +65,9 @@ namespace PegsiApp.Views
             //var d1 = data.Where(x => x.matricula == userName1 && x.password == pwd1 && x.tipoUsuario != 1).FirstOrDefault();
             //var d2 = data.Where(x => x.matricula == userName1 && x.password == pwd1 && x.tipoUsuario == 1).FirstOrDefault();
             int usuario = 0;
-            string user = "gruma01";
+            string user = "graftech01";
             string password = "admin";
+
 
             if (userName1 == user && pwd1 == password)
             {

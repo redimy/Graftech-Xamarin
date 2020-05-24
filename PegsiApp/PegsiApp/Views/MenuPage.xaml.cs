@@ -21,7 +21,9 @@ namespace PegsiApp.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Participante, Title="Participante" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.About, Title="About" },
+                new HomeMenuItem {Id = MenuItemType.Salir, Title="Salir" }
+
             };
 
             ListViewMenu.ItemsSource = menuItems;

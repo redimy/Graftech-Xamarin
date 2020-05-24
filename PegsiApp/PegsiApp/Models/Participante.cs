@@ -44,7 +44,7 @@ namespace PegsiApp.Models
         public string Departamento { get; set; }
         public string Grupo { get; set; }
         public List<String> documentosVencidos { get; set; }
-
+        public string razonSocial { get; set; }
         public virtual Empresa Empresa { get; set; }
         public virtual ICollection<CursosExternos> CursosExternos { get; set; }
         public virtual ICollection<ParticipanteCertif> ParticipanteCertif { get; set; }

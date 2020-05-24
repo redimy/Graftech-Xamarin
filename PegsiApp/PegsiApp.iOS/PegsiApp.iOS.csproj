@@ -159,4 +159,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\mlk_logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GFTLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nouser-logo.jpg" />
+  </ItemGroup>
 </Project>

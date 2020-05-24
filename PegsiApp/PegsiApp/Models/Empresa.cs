@@ -59,6 +59,8 @@ namespace PegsiApp.Models
         public string PaisFac { get; set; }
         public string CodigoPostalFac { get; set; }
 
+        public int empresaMasterId { get; set; }
+
         public virtual ICollection<EmpresaDocumentos1> EmpresaDocumentos1 { get; set; }
         public virtual ICollection<Participante> Participante { get; set; }
     }

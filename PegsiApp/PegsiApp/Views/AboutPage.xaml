@@ -28,7 +28,7 @@
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="mlk_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                    <Image Source="mlk_logo.png" VerticalOptions="Center" HeightRequest="120" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
@@ -40,7 +40,7 @@
                             <FormattedString.Spans>
                                 <Span Text="Control Acceso" FontAttributes="Bold" FontSize="22" />
                                 <Span Text=" " />
-                                <Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}" />
+                                <Span Text="2.3.0" ForegroundColor="{StaticResource LightTextColor}" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
@@ -49,7 +49,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Aplicacion enfocada al control de acceso de participantes con una credencial certificada." />
+                                <Span Text="Aplicacion enfocada al control de acceso de participantes certificados." />
                                 <Span Text=" " />
                                 <Span Text="Mindlink" FontAttributes="Bold" />
                                 <Span Text="." />

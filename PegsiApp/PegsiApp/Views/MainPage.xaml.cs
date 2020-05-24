@@ -35,6 +35,11 @@ namespace PegsiApp.Views
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
+                    case (int)MenuItemType.Salir:
+                        MenuPages.Add(id, null);
+                        Application.Current.MainPage = new LoginPage();
+                        await this.Navigation.PushAsync(new LoginPage());
+                        break;
                 }
             }
 

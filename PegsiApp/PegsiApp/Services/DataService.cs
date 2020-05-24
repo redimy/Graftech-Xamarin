@@ -40,9 +40,6 @@ namespace PegsiApp.Services
         }
 
 
-
-       
-
         public Task<bool> AddParticipanteAsync(Participante item)
         {
             throw new NotImplementedException();

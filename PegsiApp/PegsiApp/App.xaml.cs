@@ -55,9 +55,13 @@ namespace PegsiApp
         {
             if (validData == 2)
             {
-                Application.Current.MainPage = new NavigationPage(new ParticipantePage());
+                //Application.Current.MainPage = new NavigationPage(new ParticipantePage());
 
-                await name.Navigation.PushAsync(new ParticipantePage());
+                //await name.Navigation.PushAsync(new ParticipantePage());
+
+                Application.Current.MainPage = new MainPage();
+
+                await name.Navigation.PushAsync(new MainPage());
             }
 
 
