@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PegsiApp.Android", "PegsiAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PegsiApp.iOS", "PegsiApp\PegsiApp.iOS\PegsiApp.iOS.csproj", "{14F4B35F-88B2-45EE-9ABF-E6F2F5DF3F17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PegsiApp", "PegsiApp\PegsiApp\PegsiApp.csproj", "{606FAE3E-0BD7-4454-9067-4C3BC67563B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PegsiApp", "PegsiApp\PegsiApp\PegsiApp.csproj", "{606FAE3E-0BD7-4454-9067-4C3BC67563B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,9 +51,9 @@ Global
 		{3AA2777B-21C7-4732-812A-B044B6364888}.Release|x86.ActiveCfg = Release|x86
 		{3AA2777B-21C7-4732-812A-B044B6364888}.Release|x86.Build.0 = Release|x86
 		{3AA2777B-21C7-4732-812A-B044B6364888}.Release|x86.Deploy.0 = Release|x86
-		{355E4DCC-4005-4953-A52C-8CF8F688D1D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{355E4DCC-4005-4953-A52C-8CF8F688D1D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{355E4DCC-4005-4953-A52C-8CF8F688D1D7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{355E4DCC-4005-4953-A52C-8CF8F688D1D7}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{355E4DCC-4005-4953-A52C-8CF8F688D1D7}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{355E4DCC-4005-4953-A52C-8CF8F688D1D7}.Debug|Any CPU.Deploy.0 = Release|Any CPU
 		{355E4DCC-4005-4953-A52C-8CF8F688D1D7}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{355E4DCC-4005-4953-A52C-8CF8F688D1D7}.Debug|ARM.Build.0 = Debug|Any CPU
 		{355E4DCC-4005-4953-A52C-8CF8F688D1D7}.Debug|ARM.Deploy.0 = Debug|Any CPU

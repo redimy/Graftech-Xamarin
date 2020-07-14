@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GraftechApp.Dtos;
+using Newtonsoft.Json;
 using PegsiApp.Models;
 using System;
 using System.Collections.Generic;
@@ -8,31 +9,32 @@ using System.Threading.Tasks;
 
 namespace PegsiApp.Services
 {
-    public class DataService : IDataParticipante<Participante>
+    public class DataService : IDataParticipante<ParticipanteDto>
     {
         private string Url = "http://gruma.mindlink.mx:85/api/participantes/";
+        //private string Url = "https://localhost:5001/api/participantes/";
 
-        public async Task<IEnumerable<Participante>> GetParticipantesAsync()
+        public async Task<IEnumerable<ParticipanteDto>> GetParticipantesAsync()
         {
             var httpClient = new HttpClient();
 
             var json = await httpClient.GetStringAsync(Url);
 
-            var participantes = JsonConvert.DeserializeObject<List<Participante>>(json);
+            var participantes = JsonConvert.DeserializeObject<List<ParticipanteDto>>(json);
 
             return participantes;
         }
 
-        public async Task<Participante> GetParticipanteAsync(int id)
+        public async Task<ParticipanteDto> GetParticipanteAsync(int id)
         {
             var httpClient = new HttpClient();
             try
             {
                 var json = await httpClient.GetStringAsync(Url + id + "/documentos");
-                var participante = JsonConvert.DeserializeObject<Participante>(json);
+                var participante = JsonConvert.DeserializeObject<ParticipanteDto>(json);
                 return participante;
             }
-            catch
+            catch(Exception ex)
             {
                 return null;
             }
@@ -40,7 +42,7 @@ namespace PegsiApp.Services
         }
 
 
-        public Task<bool> AddParticipanteAsync(Participante item)
+        public Task<bool> AddParticipanteAsync(ParticipanteDto item)
         {
             throw new NotImplementedException();
         }
@@ -51,7 +53,7 @@ namespace PegsiApp.Services
         }
 
       
-        public Task<bool> UpdateParticipanteAsync(Participante item)
+        public Task<bool> UpdateParticipanteAsync(ParticipanteDto item)
         {
             throw new NotImplementedException();
         }

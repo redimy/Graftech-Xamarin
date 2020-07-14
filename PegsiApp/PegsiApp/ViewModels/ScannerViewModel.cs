@@ -1,4 +1,5 @@
-﻿using PegsiApp.Helper;
+﻿using GraftechApp.Dtos;
+using PegsiApp.Helper;
 using PegsiApp.Models;
 using PegsiApp.Services;
 using System;
@@ -25,12 +26,15 @@ namespace PegsiApp.ViewModels
         public string mActivo = "SIGA";
         public bool isvisible = false; 
         private DataService _dataService = new DataService();
-        public Participante _participante;
+        public ParticipanteDto _participanteDto;
         private List<String> _docVencidosList;
 
+        private ICollection<CursosExternosDto> _cursosExternosDto;
 
-        public Participante _modelParticipante;
-        public Participante modelParticipante
+
+
+        public ParticipanteDto _modelParticipante;
+        public ParticipanteDto modelParticipante
         {
             get { return _modelParticipante; }
             set
@@ -41,12 +45,12 @@ namespace PegsiApp.ViewModels
         }
 
 
-        public Participante Participante
+        public ParticipanteDto ParticipanteDto
         {
-            get { return _participante; }
+            get { return _participanteDto; }
             set
             {
-                _participante = value;
+                _participanteDto = value;
                 OnPropertyChanged();
             }
         }
@@ -60,9 +64,20 @@ namespace PegsiApp.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public ICollection<CursosExternosDto> CursosExternosDto
+        {
+            get { return _cursosExternosDto; }
+            set
+            {
+                _cursosExternosDto = value;
+                OnPropertyChanged();
+            }
+        }
         private string barcodeText;
         private string _fotoString;
         public string _colorMensaje;
+
 
         public string _info;
         public Color _colorS;
@@ -93,7 +108,6 @@ namespace PegsiApp.ViewModels
             get => _fotoString;
             set { _fotoString = value; OnPropertyChanged(); }
         }
-  
 
         private BarcodeFormat _barcodeFormat;
 
@@ -186,19 +200,21 @@ namespace PegsiApp.ViewModels
                     try
                     {
                       
-                        Participante = await _dataService.GetParticipanteAsync(iClave);
-                        if(Participante != null && Participante.Empresa.empresaMasterId == 805)
+                        ParticipanteDto = await _dataService.GetParticipanteAsync(iClave);
+                        if(ParticipanteDto != null && ParticipanteDto.EmpresaMasterId == 805)
                         {
-                            modelParticipante = Participante;
+                            modelParticipante = ParticipanteDto;
                         }
                         else
                         {
                             modelParticipante = null;
                         }
-                        if (Participante != null && (Participante.Empresa.empresaMasterId == 805))
+                        if (ParticipanteDto != null && (ParticipanteDto.EmpresaMasterId == 805))
                         {
-                            DocVencidosList = Participante.documentosVencidos;
-                            var sImagenLocation = urlImagenWeb(clave, Participante.Foto);
+                            DocVencidosList = ParticipanteDto.documentosVencidos;
+                            CursosExternosDto = ParticipanteDto.CursosExternos;
+
+                            var sImagenLocation = urlImagenWeb(clave, ParticipanteDto.Foto);
 
                             if (!File.Exists(sImagenLocation))
                             {
@@ -218,7 +234,7 @@ namespace PegsiApp.ViewModels
                                 //    colorS = cRed;
                                 //    ColorMensaje = "Inactivo";
                                 //}
-                                switch (Participante.Estatus)
+                                switch (ParticipanteDto.Estatus)
                                 {
                                     case "Activo":
                                         colorS = cGreen;
@@ -253,7 +269,7 @@ namespace PegsiApp.ViewModels
                             Info = "El usuario no existe";
                             colorS = cRed;
                             ColorMensaje = "ALTO";
-          
+     
 
                         }
 
