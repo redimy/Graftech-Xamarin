@@ -76,7 +76,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Label Text="{Binding . ,StringFormat='{0:F2} vencido.'}" HorizontalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding . ,StringFormat='{0:F2} vencido.'}" FontSize="Subtitle" HorizontalOptions="CenterAndExpand" />
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -91,20 +91,20 @@
                 </StackLayout>
 
                 <StackLayout Grid.Row="4" Orientation="Vertical" Padding="16,10,16,0" Spacing="0">
-                    <ListView x:Name="listViewCursosExternos"  ItemsSource="{Binding CursosExternosDto, Mode=TwoWay}" HeightRequest="250"  RowHeight="100">
+                    <ListView x:Name="listViewCursosExternos"  ItemsSource="{Binding CursosExternosDto}" HeightRequest="300"  RowHeight="100">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell >
-                                    <StackLayout Orientation="Vertical">
                                         <StackLayout Orientation="Horizontal">
 
                                             <Image VerticalOptions="Center" HeightRequest="90" Source="{Binding Vencido}" ></Image>
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Padding="0,20">
 
-                                            <Label Text="{Binding Nombre}" HorizontalOptions="CenterAndExpand" />
-                                            <Label Text="{Binding FechaVencimiento}" HorizontalOptions="CenterAndExpand" />
+                                            <Label Text="{Binding Nombre}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+                                            <Label Text="{Binding FechaVencimiento, StringFormat='Vencimiento: {0:dd/MM/yyyy}'}" HorizontalOptions="CenterAndExpand" FontSize="Subtitle"/>
+                                            </StackLayout>
 
                                         </StackLayout>
-                                    </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
