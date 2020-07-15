@@ -22,6 +22,9 @@ namespace GraftechApp.Dtos
         public string Rfc { get; set; }
         public string Curp { get; set; }
         public string Estatus { get; set; }
+        public bool Credencial { get; set; }
+        public bool Activo { get; set; }
+
 
         public List<String> documentosVencidos { get; set; }
         public string razonSocial { get; set; }

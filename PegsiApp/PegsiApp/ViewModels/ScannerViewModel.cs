@@ -255,6 +255,12 @@ namespace PegsiApp.ViewModels
                         
 
                                 }
+
+                                if (!ParticipanteDto.Credencial || !ParticipanteDto.Activo)
+                                {
+                                    colorS = cRed;
+                                    ColorMensaje = "Inactivo";
+                                }
                             }
                             else
                             {
